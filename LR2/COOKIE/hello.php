@@ -5,7 +5,7 @@ if (isset($_POST["email"]) && isset($_POST["pass"]) && $_POST["pass"] !="")
 	$user_pass=$_POST["pass"];
 	setcookie("email",$user_email,time()+3600);
 	setcookie("pass",$user_pass,time()+3600);
-	header("Location:/Ereschenko/COOKIE//hello.php");
+	header("Location:/Ereschenko/COOKIE/hello.php");
 }
 session_start();
 if (isset($_POST["email"]) && isset($_POST["pass"]) && $_POST["pass"] !="") 
