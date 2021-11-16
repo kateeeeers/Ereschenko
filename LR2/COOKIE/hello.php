@@ -9,8 +9,6 @@ session_write_close();
 ?>
 <head></head>
 <body>
-<form action="/Ereschenko/COOKIE/index.php" method="POST">
-<button type="submit" class="btn btn-primary mb-3">Выход</button>
-</form>
+<a href = "/Ereschenko/index.php?logout=yes">Выход</a>
 <h1> Hello <?=$_SESSION["email"]?></h1>
 </body>
