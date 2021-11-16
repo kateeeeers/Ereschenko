@@ -1,5 +1,13 @@
+<?
+if ($_GET=="yes") 
+{
+  $_SESSION['email'] = $_POST["email"];
+  $_SESSION['pass'] = $_POST["pass"];
+}
+session_write_close();
+?>
 <body>
-<form action="/Ereschenko/COOKIE/hello.php" method="POST">
+<form action="/Ereschenko/hello.php" method="POST">
 <div class="mb-3" style="margin-bottom: 10px; margin-top:10px">
   <label for="exampleFormControlInput1" class="form-label">Login</label>
   <input name="email" type="email" class="form-control" id="exampleFormControlInput1" placeholder="login">
@@ -15,4 +23,3 @@
 
 <head></head>
 </body>
-
