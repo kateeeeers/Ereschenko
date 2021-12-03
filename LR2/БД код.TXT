@@ -1,0 +1,48 @@
+CREATE TABLE Materials (
+    MaterialsID int NOT NULL,
+    Price float NOT NULL,
+    Name varchar(255) NOT NULL,
+    PRIMARY KEY(MaterialsID)
+);
+CREATE TABLE Stock (
+    StockID int NOT NULL,
+    Percent int,
+    PRIMARY KEY(StockID)
+);
+CREATE TABLE Clients (
+    ClientsID int NOT NULL,
+    FullNameClients varchar(255) NOT NULL,
+    Phone number varchar(255) NOT NULL,
+    Address varchar(255),
+    PRIMARY KEY(ClientsID)
+);
+    CREATE TABLE Orders (
+    OrdersID int NOT NULL,
+    ClientsID int NOT NULL,
+    OrderDate datetime NOT NULL,
+    StockID int NOT NULL,
+    Total float NOT NULL,
+    PRIMARY KEY(OrdersID),
+    FOREIGN KEY(ClientsID) REFERENCES Clients(ClientsID),
+    FOREIGN KEY(GoodsID) REFERENCES Goods(GoodsID),
+    FOREIGN KEY(StockID) REFERENCES Stock(StockID)  
+);
+   CREATE TABLE Goods (
+    GoodsID int NOT NULL,
+    Image blob NOT NULL,
+    Name varchar(255) NOT NULL,
+    MaterialsID int NOT NULL,
+    Description varchar(255) NOT NULL,
+    Price float NOT NULL,
+    LinkToTheImage varchar(255) NOT NULL,
+    PRIMARY KEY(GoodsID),
+    FOREIGN KEY(MaterialsID) REFERENCES Materials(MaterialsID)
+);
+ CREATE TABLE GoodsOrders (
+    GoodsOrdersID int NOT NULL,
+    GoodsID int NOT NULL,
+    OrdersID int NOT NULL,
+    PRIMARY KEY(GoodsOrdersID),
+    FOREIGN KEY(GoodsID) REFERENCES Goods(GoodsID),
+    FOREIGN KEY(OrdersID) REFERENCES Orders(OrdersID)
+);
