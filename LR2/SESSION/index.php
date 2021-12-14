@@ -1,3 +1,15 @@
+session_start();
+if(isset($_GET["logout"])&& $_GET["logout"]=='yes')
+{   
+session_destroy();
+}
+if(isset($_SESSION['email'])&& isset($_SESSION['pass'])&& $_SESSION['email']!=""&& $_SESSION['pass']!="")
+	{
+		header("Location:/Ereschenko/hello.php");
+	}
+<html>
+<head></head>
+<body>
 <form action="/Ereschenko/hello.php" method="POST">
 <div class="mb-3" style="margin-bottom: 10px; margin-top:10px">
   <label for="exampleFormControlInput1" class="form-label">Login</label>
@@ -11,7 +23,5 @@
     <button type="submit" class="btn btn-primary mb-3">Confirm identity</button>
   </div>
   </form>
-
-<head></head>
-<body>
-
+  </body>
+</html>
