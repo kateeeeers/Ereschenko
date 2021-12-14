@@ -24,7 +24,6 @@ CREATE TABLE Clients (
     Total float NOT NULL,
     PRIMARY KEY(OrdersID),
     FOREIGN KEY(ClientsID) REFERENCES Clients(ClientsID),
-    FOREIGN KEY(GoodsID) REFERENCES Goods(GoodsID),
     FOREIGN KEY(StockID) REFERENCES Stock(StockID)  
 );
    CREATE TABLE Goods (
