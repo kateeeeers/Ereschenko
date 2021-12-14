@@ -4,6 +4,7 @@ if (isset($_POST["email"]) && isset($_POST["pass"]) && $_POST["pass"] !=""&& $_P
 {
   $_SESSION['email'] = $_POST["email"];
   $_SESSION['pass'] = $_POST["pass"];
+	$value=$_SESSION['email']
 }
 else 
 {
@@ -17,10 +18,13 @@ else
 	}
 } 
 session_write_close();
-?>
-<form action="/Ereschenko/index.php" method="POST">
-<button type="submit" class="btn btn-primary mb-3">Confirm identity</button>
-</form>
+?>-
+<html>
 <head></head>
 <body>
 <h1> Hello <?=$value?></h1>
+<div>
+	<a href="/Ereschenko/index.php?logout=yes">Выход</a>
+</div>	
+</body>	
+</html>
