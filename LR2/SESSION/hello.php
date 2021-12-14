@@ -1,19 +1,21 @@
 <?
-if (isset($_POST["email"]) && isset($_POST["pass"]) && $_POST["pass"] !="")
-{
-	$user_email=$_POST["email"];
-	$user_pass=$_POST["pass"];
-	setcookie("email",$user_email,time()+3600);
-	setcookie("pass",$user_pass,time()+3600);
-	header("Location:/Ereschenko/hello.php");
-}
 session_start();
-if (isset($_POST["email"]) && isset($_POST["pass"]) && $_POST["pass"] !="") 
+if (isset($_POST["email"]) && isset($_POST["pass"]) && $_POST["pass"] !=""&& $_POST["email"] !="") 
 {
   $_SESSION['email'] = $_POST["email"];
   $_SESSION['pass'] = $_POST["pass"];
 }
-
+else 
+{
+	if(isset($_SESSION['email'])&& isset($_SESSION['pass'])&& $_SESSION['email']!=""&& $_SESSION['pass']!="")
+	{
+		$value=$_SESSION['email']
+	}
+	else
+	{
+		header("Location:/Ereschenko/index.php");
+	}
+} 
 session_write_close();
 ?>
 <form action="/Ereschenko/index.php" method="POST">
@@ -21,4 +23,4 @@ session_write_close();
 </form>
 <head></head>
 <body>
-<h1> Hello <?=$_SESSION["email"]?></h1>
+<h1> Hello <?=$value?></h1>
