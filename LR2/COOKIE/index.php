@@ -1,10 +1,14 @@
 <?
-if ($_GET=="yes") 
+if(isset($_GET["logout"])&& $_GET["logout"]=='yes')
 {
-  $_SESSION['email'] = $_POST["email"];
-  $_SESSION['pass'] = $_POST["pass"];
+	setcookie("email",'',time()+3600);
+	setcookie("pass",'',time()+3600);
 }
-session_write_close();
+if(isset($_COOKIE["pass"])&& isset($_COOKIE["email"])&& $_COOKIE["pass"]!="" && $_COOKIE["email"]!="")
+{
+	header("Location:/Ereschenko/hello.php");
+
+}
 ?>
 <body>
 <form action="/Ereschenko/hello.php" method="POST">
